@@ -14,16 +14,17 @@ console.log(counter())
 /*
     lexicalEnv: {
         globalEnv: {
-            count: 0
-            counter: createCounterRef
+            enviromentRecord: {
+                count: 0
+                counter: createCounterRef
+            }
+            outer: null,
         },
 
-        outer: null
+        createCounterEnv: {
+            arguments: {},
+            enviromentRecord: {},
+            outer: globalEnv
+        }
     },
-
-    createCounterEnv: {
-        arguments: {},
-        enviromentRecord: {},
-        outer: globalEnv
-    }
 */

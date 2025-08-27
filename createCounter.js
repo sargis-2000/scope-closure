@@ -1,29 +1,49 @@
-let count = 0;
-
 function createCounter() {
-    count++
-    return count
+    let count = 0;
+
+    return () => ++count
 }
 
-const counter = createCounter
+const counter = createCounter()
 
-console.log(counter())
-console.log(counter())
+console.log(counter()) // 1
+console.log(counter()) // 2
+
+
+//creation phase
+/*
+  lexicalEnv: {
+    globalEnv: {
+      environmentRecord: {
+        counter: <uninitialized>
+      }
+      outer: null
+    },
+    createCounterEnv: {
+      arguments: {},
+      environmentRecord: {
+        count: <uninitialized>
+      },
+      outer: globalEnv
+    }
+  }
+*/
 
 // execution phase
 /*
     lexicalEnv: {
         globalEnv: {
             enviromentRecord: {
-                count: 0
-                counter: createCounterRef
-            }
+                counter: createCounterInnerFnRef
+            },
             outer: null,
         },
 
         createCounterEnv: {
             arguments: {},
-            enviromentRecord: {},
+            enviromentRecord: {
+                count: 2
+            },
             outer: globalEnv
         }
     },

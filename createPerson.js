@@ -23,21 +23,21 @@ function createPerson(name, age) {
 
 const person = createPerson('Alice', 25)
 
-console.log(person.getName())
-console.log(person.getAge())
+console.log(person.getName()) // Alice
+console.log(person.getAge()) // 25
 
 person.setName('Bob')
 person.setAge(25)
 
-console.log(person.getName())
-console.log(person.getAge())
+console.log(person.getName()) // Bob
+console.log(person.getAge()) // 25
 
-// executionPhase
+// creation phase
 /*
-    lexicalEnv: {
+lexicalEnv: {
         globalScope: {
             enviromentRecord: {
-                person: createPersonRef
+                person: <uninitialized>
             },
 
             outer: null
@@ -45,12 +45,39 @@ console.log(person.getAge())
 
         createPersonEnv: {
             arguments: {
-                name: Alice,
+                name: <uninitialized>,
+                age: <uninitialized>
+            },
+
+            enviromentRecord: {
+                _name: <uninitialized>,
+                _age: <uninitialized>
+            }
+
+            outer: globalEnv
+        }
+    }
+*/
+
+// execution phase
+/*
+    lexicalEnv: {
+        globalScope: {
+            enviromentRecord: {
+                person: object
+            },
+
+            outer: null
+        },
+
+        createPersonEnv: {
+            arguments: {
+                name: Bob,
                 age: 25
             },
 
             enviromentRecord: {
-                _name: Alice,
+                _name: Bob,
                 _age: 25
             }
 

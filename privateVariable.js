@@ -21,7 +21,9 @@ console.log(secretValue.get()) // 100
 /*
 lexicalEnv: {
         globalEnv: {
-            enviromentRecord: {}
+            enviromentRecord: {
+                secretValue: <uninitialized>
+            }
             outer: null,
         },
 
@@ -43,7 +45,9 @@ lexicalEnv: {
 /*
     lexicalEnv: {
         globalEnv: {
-            enviromentRecord: {}
+            enviromentRecord: {
+                secretValue: object
+            },
             outer: null,
         },
 
